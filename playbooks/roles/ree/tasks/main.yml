@@ -1,0 +1,13 @@
+- name: check installed ruby ree versions
+  stat: path={{rbenv_root}}/versions/{{item}}/bin
+  register: rbenv_ree_installed_versions
+  with_items: ruby_ree_versions
+
+- name: install ruby ree versions
+  shell: >
+    CONFIGURE_OPTS="--no-tcmalloc" {{ruby_build_root}}/bin/ruby-build {{item.item}} {{rbenv_root}}/versions/{{item.item}} &&
+    env PATH={{rbenv_root}}/versions/{{item.item}}/bin:\$PATH gem install bundler
+  with_items: rbenv_ree_installed_versions.results
+  when: item.stat.exists == False
+  notify:
+    - rbenv rehash
