@@ -1,0 +1,29 @@
+{
+  "builders": [
+    {
+      "type":        "docker",
+      "image":       "ubuntu:12.04",
+      "pull":        true,
+      "export_path": "bebanjo-vexor.tar"
+    }
+  ],
+  "provisioners": [
+    {
+      "type":          "shell",
+      "inline": [
+        "mkdir -p /tmp/packer-provisioner-ansible-local"
+      ]
+    },
+    {
+      "type":          "file",
+      "source":        "playbooks/roles/",
+      "destination":   "/tmp/packer-provisioner-ansible-local/"
+    },
+    {
+      "type":              "ansible-local",
+      "playbook_file":     "playbooks/bebanjo.yml",
+      "staging_directory": "/tmp/packer-provisioner-ansible-local",
+      "extra_arguments":   ["-vvvv"]
+    }
+  ]
+}
