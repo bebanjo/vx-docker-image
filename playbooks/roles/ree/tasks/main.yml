@@ -5,7 +5,7 @@
 
 - name: install ruby ree versions
   shell: >
-    CONFIGURE_OPTS="--no-tcmalloc" {{ruby_build_root}}/bin/ruby-build {{item.item}} {{rbenv_root}}/versions/{{item.item}} &&
+    CFLAGS="-O2 -fno-tree-dce -fno-optimize-sibling-calls" CONFIGURE_OPTS="--no-tcmalloc" {{ruby_build_root}}/bin/ruby-build {{item.item}} {{rbenv_root}}/versions/{{item.item}} &&
     env PATH={{rbenv_root}}/versions/{{item.item}}/bin:\$PATH gem install bundler
   with_items: rbenv_ree_installed_versions.results
   when: item.stat.exists == False
