@@ -1,10 +1,13 @@
-- name: install packages
+- name: mysql newest ppa
+  apt_repository: repo='ppa:ondrej/mysql-{{mysql_version}}' state=present
+
+- name: install server packages
   apt: pkg={{item}} state=latest
   environment:
     RUNLEVEL: '1'
   with_items:
-    - mysql-server-{{mysql_version}}
     - libmysqlclient-dev
+    - mysql-server-{{mysql_version}}
 
 - name: stop mysql server
   service: name=mysql state=stopped
