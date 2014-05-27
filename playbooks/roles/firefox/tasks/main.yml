@@ -9,6 +9,6 @@
 # TODO specify the version to install in other place
 
 - name: install firefox packages
-  apt: pkg={{item}}={{firefox_version}} state=present upgrade=no update_cache=true
+  apt: name={{item}}={{firefox_version}} state=present
   with_items:
     - firefox
