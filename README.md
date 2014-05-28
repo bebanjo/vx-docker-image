@@ -101,3 +101,29 @@ vagrant@host:/vagrant_data$ ./build precise-vexor
 
 See [playbooks/git_repositories/tasks/main.yml](https://github.com/pacoguzman/vx-docker-image/blob/bebanjo/playbooks/git_repositories/tasks/main.yml) points to a src file .id_github.txt on that ignore file you have to paste
 the ssh key of one of the github administrators to access to the repositories. Remember that file has not be on the public repository
+
+### TODO
+
+1. Use a variable for the uid of the docker user so it can read/write into the volumes, should be the same like
+  the one for the vxworker user on the worker machines
+
+2. Fix jruby installation (missing JAVA on the path)
+
+3. Bootstrap bebanjo repositories directly on the image with ansible, or figure out other solution, for the moment
+you can do the following after you build the image:
+
+```sh
+# start the image
+workermachine$ docker run -i -t image_identifier /bin/bash
+
+docker-image$ su - vexor
+docker-image$ eval "$(ssh-agent)"
+docker-image$ ssh-add ~/.ssh/id_rsa
+# item are the big repos you want to cache, don't change the path where clone because the worker will use that specific path
+docker-image$ git clone git@github.com:{{item}}.git /home/vexor/code/{{item}}
+docker-image$ exit
+
+# get the container id of the previous image and commit the changes (don't need to push the changes)
+docker commit 085f27c6b1ec image_identifier
+```
+
