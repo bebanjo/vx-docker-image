@@ -18,3 +18,4 @@
     - sphinx
     - xvfb
     - firefox
+    - git_repositories
