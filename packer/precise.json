@@ -10,7 +10,7 @@
   "provisioners": [
     {
       "type":   "shell",
-      "script": "script/base_precise.sh"
+      "script": "script/base.sh"
     }
   ]
 }

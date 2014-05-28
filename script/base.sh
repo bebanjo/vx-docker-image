@@ -3,8 +3,9 @@
 export RUNLEVEL=1
 export DEBIAN_FRONTEND=noninteractive
 
-echo "deb mirror://mirrors.ubuntu.com/mirrors.txt precise main restricted universe" > /etc/apt/sources.list
+#echo "deb mirror://mirrors.ubuntu.com/mirrors.txt precise main restricted universe" > /etc/apt/sources.list
 apt-get -qy update
+apt-get -qy upgrade
 
 # add ssh
 apt-get install -qy openssh-server
@@ -17,8 +18,8 @@ sed -i 's/start on local-filesystems/start on local-filesystems or dockerboot/' 
 # change /bin/mknod, need for openjdk-7-jdk => fuse
 dpkg-divert --local --rename --add /sbin/mknod && ln -s /bin/true /sbin/mknod
 
-# create user
-useradd -m vexor -s /bin/bash
+# create user with specific uid and gid to share properly docker volumes
+useradd -m vexor -s /bin/bash --uid 999
 echo "vexor:vexor" | chpasswd
 apt-get -qy install sudo
 echo "vexor ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers

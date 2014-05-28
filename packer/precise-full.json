@@ -9,8 +9,8 @@
   ],
   "provisioners": [
     {
-      "type":          "shell",
-      "script":        "script/base_precise.sh"
+      "type":   "shell",
+      "script": "script/base.sh"
     },
     {
       "type":          "shell",

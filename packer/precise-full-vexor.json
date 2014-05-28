@@ -2,8 +2,8 @@
   "builders": [
     {
       "type":        "docker",
-      "image":       "ubuntu:12.04",
-      "pull":        true,
+      "image":       "bebanjo-precise-full",
+      "pull":        false,
       "export_path": "bebanjo-vexor.tar"
     }
   ],
