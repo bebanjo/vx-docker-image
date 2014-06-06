@@ -78,7 +78,7 @@ vagrant$ cd /vagrant_data
 Default image build from an ubuntu:12.04 image, basic setup to be provisioned with ansible
 
 ```sh
-vagrant@host:/vagrant_data$ ./build precise
+vagrant@host:/vagrant_data$ ./build.sh precise
 ```
 
 ### precise-full
@@ -87,7 +87,7 @@ Do the same that the default precise image plus all the setup needed on the orig
 Ansible playbook https://github.com/pacoguzman/vx-docker-image/blob/bebanjo/playbooks/site.yml
 
 ```sh
-vagrant@host:/vagrant_data$ ./build precise-full
+vagrant@host:/vagrant_data$ ./build.sh precise-full
 ```
 
 ### precise-vexor
@@ -96,7 +96,7 @@ This is the custom bebanjo image the use the precise-full resulting image as a b
 Ansible playbook https://github.com/pacoguzman/vx-docker-image/blob/bebanjo/playbooks/bebanjo.yml
 
 ```sh
-vagrant@host:/vagrant_data$ ./build precise-vexor
+vagrant@host:/vagrant_data$ ./build.sh precise-vexor
 ```
 
 See [playbooks/git_repositories/tasks/main.yml](https://github.com/pacoguzman/vx-docker-image/blob/bebanjo/playbooks/git_repositories/tasks/main.yml) points to a src file .id_github.txt on that ignore file you have to paste
