@@ -13,9 +13,12 @@
 
     firefox_version: 11.0+build1-0ubuntu4
 
+    mysql_version: 5.6
+
   roles:
     - ree
     - sphinx
     - xvfb
     - firefox
     - git_repositories
+    - mysql
