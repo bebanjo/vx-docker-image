@@ -1,5 +1,5 @@
 FROM ubuntu:12.04
-MAINTAINER Dmitry Galinsky
+MAINTAINER Paco Guzman
 
 ADD base.sh /tmp/provision/base.sh
 RUN bash /tmp/provision/base.sh

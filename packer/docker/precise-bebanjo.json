@@ -4,7 +4,7 @@
       "type":        "docker",
       "image":       "pacoguzman/vexor-precise:latest",
       "pull":        true,
-      "export_path": "precise-full.tar"
+      "export_path": "precise-bebanjo.tar"
     }
   ],
   "provisioners": [
@@ -17,15 +17,6 @@
       "type":   "shell",
       "script": "docker/precise-full/base.sh"
     }
-  ],
-  "post-processors": [
-    [
-      {
-        "type": "docker-import",
-        "repository": "pacoguzman/vexor-precise-full",
-        "tag": "latest"
-      }
-    ]
   ]
 }
 

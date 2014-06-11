@@ -1,4 +1,4 @@
-FROM pacoguzman/vexor-precise:latest
+FROM pacoguzman/vexor-precise-full:latest
 MAINTAINER Paco Guzman
 
 ADD base.sh /tmp/provision/base.sh
