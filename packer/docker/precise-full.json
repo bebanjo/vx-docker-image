@@ -2,7 +2,7 @@
   "builders": [
     {
       "type":        "docker",
-      "image":       "pacoguzman/vexor-precise:latest",
+      "image":       "dmexe/vexor-precise:latest",
       "pull":        true,
       "export_path": "precise-full.tar"
     }
@@ -22,7 +22,7 @@
     [
       {
         "type": "docker-import",
-        "repository": "pacoguzman/vexor-precise-full",
+        "repository": "dmexe/vexor-precise-full",
         "tag": "latest"
       }
     ]
