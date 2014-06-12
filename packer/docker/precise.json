@@ -17,7 +17,7 @@
     [
       {
         "type": "docker-import",
-        "repository": "dmexe/vexor-precise",
+        "repository": "pacoguzman/vexor-supervisord-precise",
         "tag": "latest"
       }
     ]

@@ -51,6 +51,7 @@
       - zlib1g-dev
       - imagemagick
       - libmagickwand-dev
+      - supervisor
 
   roles:
     - bootstrap

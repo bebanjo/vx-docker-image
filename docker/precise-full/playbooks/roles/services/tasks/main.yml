@@ -1,2 +1,12 @@
-- name: create upstart job
-  template: src=docker-boot.upstart.conf dest=/etc/init/docker-boot.conf
+#- name: create upstart job
+#  template: src=docker-boot.upstart.conf dest=/etc/init/docker-boot.conf
+
+- name: create supervisord
+  template: src=supervisord.conf dest=/etc/supervisor/conf.d/supervisord.conf
+
+- name: create supervisord
+  template: src=supervisord.{{ item.name }}.conf dest=/etc/supervisor/conf.d/{{ item.service }}.conf
+  with_items:
+    - { name: ssh,   service: sshd }
+    - { name: redis, service: redis-server }
+    - { name: mysql, service: mysqld }

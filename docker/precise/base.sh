@@ -10,11 +10,6 @@ apt-get -qy upgrade
 
 # add ssh
 apt-get install -qy openssh-server
-sed -i 's/start on filesystem/start on filesystem or dockerboot/' /etc/init/ssh.conf
-
-# add dbus, need for upstart jobs
-apt-get install -qy dbus
-sed -i 's/start on local-filesystems/start on local-filesystems or dockerboot/' /etc/init/dbus.conf
 
 # change /bin/mknod, need for openjdk-7-jdk => fuse
 dpkg-divert --local --rename --add /sbin/mknod && ln -s /bin/true /sbin/mknod

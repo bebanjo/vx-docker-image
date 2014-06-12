@@ -7,6 +7,9 @@ export RUNLEVEL=1
 export DEBIAN_FRONTEND=noninteractive
 export PYTHONUNBUFFERED=1
 
+# To run sshd through supervisord use a better place
+mkdir -p -m0700 /var/run/sshd
+
 cd /tmp/provision
 
 apt-get install -qy python-software-properties

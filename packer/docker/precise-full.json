@@ -2,9 +2,9 @@
   "builders": [
     {
       "type":        "docker",
-      "image":       "dmexe/vexor-precise:latest",
-      "pull":        true,
-      "export_path": "precise-full.tar"
+      "image":       "pacoguzman/vexor-supervisord-precise:latest",
+      "pull":        false,
+      "export_path": "precise-supervisord-full.tar"
     }
   ],
   "provisioners": [
@@ -22,7 +22,7 @@
     [
       {
         "type": "docker-import",
-        "repository": "dmexe/vexor-precise-full",
+        "repository": "pacoguzman/vexor-supervisord-precise-full",
         "tag": "latest"
       }
     ]
