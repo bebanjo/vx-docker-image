@@ -3,4 +3,3 @@
 *.tar.gz
 packer-installation
 docker-registry
-docker/precise-bebanjo/playbooks/roles/git_repositories/.id_github.txt
