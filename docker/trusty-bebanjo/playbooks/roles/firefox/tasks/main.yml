@@ -1,0 +1,14 @@
+# Install firefox
+# http://ftp.mozilla.org/pub/mozilla.org/firefox/releases/3.6.17/linux-i686/en-GB/firefox-3.6.17.tar.bz2
+# curl url > firefox-3.6.17.tar.bz2
+# tar xjf firefox-3.6.17.tar.bz2
+# http://www.liberiangeek.net/2012/04/how-to-install-previous-versions-of-firefox-in-ubuntu-12-04-precise-pangolin/
+# as vexor user
+# su - vexor
+# sudo ln -s -f /opt/firefoxes/firefox-3.6.17/firefox/firefox /usr/bin/firefox
+# TODO specify the version to install in other place
+
+- name: install firefox packages
+  apt: name={{item}}={{firefox_version}} state=present
+  with_items:
+    - firefox

@@ -1,0 +1,24 @@
+---
+- hosts: all
+
+  vars:
+    ruby_versions:
+      - 1.9.3-p547
+      - 2.0.0-p481
+      - 2.1.2
+      - jruby-1.7.12
+
+    ruby_ree_versions:
+      - ree-1.8.7-2012.02
+
+    firefox_version: 11.0+build1-0ubuntu4
+
+    mysql_version: 5.6
+
+  roles:
+    - ree
+    - sphinx
+    - xvfb
+    - firefox
+    - git_repositories
+    - mysql

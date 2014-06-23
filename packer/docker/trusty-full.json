@@ -2,27 +2,27 @@
   "builders": [
     {
       "type":        "docker",
-      "image":       "pacoguzman/vexor-precise-bebanjo:latest",
+      "image":       "dmexe/vexor-trusty:latest",
       "pull":        true,
-      "export_path": "precise-bebanjo.tar"
+      "export_path": "trusty-full.tar"
     }
   ],
   "provisioners": [
     {
       "type": "file",
-      "source": "docker/precise-bebanjo/playbooks",
+      "source": "docker/trusty-full/playbooks",
       "destination": "/tmp/provision"
     },
     {
       "type":   "shell",
-      "script": "docker/precise-bebanjo/base.sh"
+      "script": "docker/trusty-full/base.sh"
     }
   ],
   "post-processors": [
     [
       {
         "type": "docker-import",
-        "repository": "pacoguzman/vexor-precise-bebanjo",
+        "repository": "dmexe/vexor-trusty-full",
         "tag": "latest"
       }
     ]
