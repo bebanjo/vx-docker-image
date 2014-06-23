@@ -1,0 +1,13 @@
+# https://github.com/keyvanfatehi/docker-chrome-xvfb/blob/master/Dockerfile
+# Maybe we want to install that thing so is easier to start and stop the thing
+# Other example: http://function.fr/docker-with-chrome-and-selenium-and-firefox/
+
+- name: install xvfb packages
+  apt: pkg={{item}} state=latest update_cache=true
+  with_items:
+    - xvfb
+
+# Maybe we want this a a service on the docker image
+
+- name: create xvfb init.d script
+  template: src=xvfb.conf dest=/etc/init.d/xvfb
