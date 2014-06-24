@@ -1,0 +1,5 @@
+#!/bin/bash
+set -e
+
+# start supervisor
+/usr/bin/supervisord -c /etc/supervisor/supervisord.conf

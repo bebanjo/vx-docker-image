@@ -9,11 +9,11 @@ case $1 in
   "precise-full")
     packer build packer/docker/precise-full.json
     ;;
-  "precise-vexor")
-    PACKER_LOG=1 packer build packer/docker/precise-full-vexor.json
+  "precise-bebanjo")
+    packer build packer/docker/precise-bebanjo.json
     ;;
   *)
-    echo "Usage $0 (precise|precise-full|precise-vexor)"
+    echo "Usage $0 (precise|precise-full|precise-bebanjo)"
     exit 1
     ;;
 esac

@@ -1,12 +1,11 @@
-#- name: create upstart job
-#  template: src=docker-boot.upstart.conf dest=/etc/init/docker-boot.conf
-
 - name: create supervisord
   template: src=supervisord.conf dest=/etc/supervisor/conf.d/supervisord.conf
 
-- name: create supervisord
+- name: create supervisord for services
   template: src=supervisord.{{ item.name }}.conf dest=/etc/supervisor/conf.d/{{ item.service }}.conf
   with_items:
     - { name: ssh,   service: sshd }
-    - { name: redis, service: redis-server }
     - { name: mysql, service: mysqld }
+
+- name: mimic phusion images init script
+  template: src=my_init dest=/sbin/my_init mode="0755"
