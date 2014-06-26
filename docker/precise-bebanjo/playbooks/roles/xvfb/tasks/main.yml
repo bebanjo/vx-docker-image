@@ -10,4 +10,4 @@
 # Maybe we want this a a service on the docker image
 
 - name: create xvfb init.d script
-  template: src=xvfb.conf dest=/etc/init.d/xvfb
+  template: src=xvfb.conf dest=/etc/init.d/xvfb mode="0755"
