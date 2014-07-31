@@ -4,7 +4,7 @@
       "type":        "docker",
       "image":       "ubuntu:12.04",
       "pull":        true,
-      "export_path": "precise.tar"
+      "export_path": "precise-supervisord.tar"
     }
   ],
   "provisioners": [
