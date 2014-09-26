@@ -6,6 +6,7 @@
       - 1.9.3-p547
       - jruby-1.7.15
       - 2.0.0-p576
+      - 2.1.2
       - 2.1.3
 
     ruby_ree_versions:
@@ -16,9 +17,10 @@
     mysql_version: 5.6
 
   roles:
+    - rbenv
     - ree
     - sphinx
     - xvfb
     - firefox
-    - git_repositories
     - mysql
+    - git_repositories
