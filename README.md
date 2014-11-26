@@ -133,8 +133,7 @@ docker commit 085f27c6b1ec image_identifier
 # Update ruby-build
 cd /opt/ruby-build && git pull
 
-# Install the 2.0.0-p594 ruby version
-CONFIGURE_OPTS="--disable-install-doc" /opt/ruby-build/bin/ruby-build 2.0.0-p594 /opt/rbenv/versions/2.0.0-p594 && env RBENV_ROOT=/opt/rbenv rbenv rehash
-en RBENV_ROOT=/opt/rbenv RBENV_VERSION=2.0.0-p594 rbenv exec gem install bundler && env RBENV_ROOT=/opt/rbenv rbenv rehash
-ON=2.1.4 rbenv exec gem install bundler && env RBENV_ROOT=/opt/rbenv rbenv rehash
+# Install the 2.1.5 ruby version
+CONFIGURE_OPTS="--disable-install-doc" /opt/ruby-build/bin/ruby-build 2.1.5 /opt/rbenv/versions/2.1.5 && env RBENV_ROOT=/opt/rbenv rbenv rehash
+env RBENV_ROOT=/opt/rbenv RBENV_VERSION=2.1.5 rbenv exec gem install bundler && env RBENV_ROOT=/opt/rbenv rbenv rehash
 ```
