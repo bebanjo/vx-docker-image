@@ -1,8 +1,11 @@
-FROM phusion/baseimage:0.9.10
+FROM phusion/baseimage:0.9.15
 MAINTAINER Dmitry Galinsky
 
-ADD base.sh /tmp/provision/base.sh
-RUN bash /tmp/provision/base.sh
-RUN rm -rf /tmp/provision
+ADD 00_base.sh /tmp/provision/00_base.sh
+ADD 10_ci_env.sh /tmp/provision/10_ci_env.sh
+ADD 99_tests.sh /var/vexor/tests.sh
+ADD playbooks /tmp/provision/playbooks
 
-#ENTRYPOINT ["/sbin/init", "--startup-event", "dockerboot"]
+RUN bash /tmp/provision/00_base.sh
+RUN bash /tmp/provision/10_ci_env.sh
+RUN rm -rf /tmp/provision

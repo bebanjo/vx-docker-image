@@ -1,0 +1,18 @@
+- name: install default nodejs version
+  shell: >
+    vxvm install nodejs {{ nodejs_default_version }}
+  register: nodejs_default_result
+
+- name: capture default nodejs location
+  shell: >
+    vxvm location nodejs {{ nodejs_default_version }}
+  register: nodejs_default_location_result
+
+- name: symlink default nodejs to PATH
+  file: >
+    src={{ nodejs_default_location_result.stdout }}/bin/{{ item }}
+    dest=/usr/local/bin/{{ item }}
+    state=link
+  with_items:
+    - "node"
+    - "npm"

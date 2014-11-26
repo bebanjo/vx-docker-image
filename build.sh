@@ -1,16 +1,16 @@
-#!/bin/bash
+set -x
 
-set -e
+VERSION=$(cat version.txt)
 
 case $1 in
-  "precise")
-    packer build packer/precise.json
-    ;;
-  "precise-full")
-    packer build packer/precise-full.json
+  push)
+    echo docker push vexor/trusty:${VERSION}
+    docker push vexor/trusty:${VERSION}
     ;;
   *)
-    echo "Usage $0 (precise|precise-full)"
-    exit 1
+    cd docker/trusty
+    echo docker build -t vexor/trusty:${VERSION} .
+    docker build --rm --no-cache -t vexor/trusty:${VERSION} .
+    docker run -it vexor/trusty:${VERSION} /sbin/my_init -- /bin/bash /var/vexor/tests.sh
     ;;
 esac
