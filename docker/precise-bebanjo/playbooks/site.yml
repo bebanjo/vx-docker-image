@@ -15,6 +15,9 @@
 
     mysql_version: 5.6
 
+    installed_packages:
+      - augeas-tools
+
   roles:
     - rbenv
     - ree
