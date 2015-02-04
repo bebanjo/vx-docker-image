@@ -4,8 +4,10 @@
 - name: create supervisord for services
   template: src=supervisord.{{ item.name }}.conf dest=/etc/supervisor/conf.d/{{ item.service }}.conf
   with_items:
-    - { name: ssh,   service: sshd }
-    - { name: mysql, service: mysqld }
+    - { name: ssh,           service: sshd }
+    - { name: mysql,         service: mysqld }
+    - { name: elasticsearch, service: elasticsearch }
+    - { name: redis,         service: redis }
 
 - name: mimic phusion images init script
   template: src=my_init dest=/sbin/my_init mode="0755"
