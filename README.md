@@ -127,7 +127,9 @@ docker-image$ exit
 docker commit 085f27c6b1ec image_identifier
 ```
 
-# update only installed ruby versions
+4. Log the output of each supervised service [reference](http://tech.paulcz.net/2014/12/multi-process-docker-images-done-right/)
+
+### update only installed ruby versions
 
 ```sh
 # Update ruby-build
