@@ -1,6 +1,12 @@
 - name: create supervisord
   template: src=supervisord.conf dest=/etc/supervisor/conf.d/supervisord.conf
 
+- name: create supervisord group
+  group: name=supervisord state=present
+
+- name: add user supervisor group
+  user: name=vexor groups=supervisor append=yes
+
 - name: create supervisord for services
   template: src=supervisord.{{ item.name }}.conf dest=/etc/supervisor/conf.d/{{ item.service }}.conf
   with_items:
